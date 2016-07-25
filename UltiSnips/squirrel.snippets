@@ -1,0 +1,183 @@
+# Functio
+snippet fun "Description"
+function ${1:function_name}(${2}) {
+	${0}
+}
+endsnippet
+# Anonymous Function
+snippet f "Description"
+function(${1}) {
+	${0}
+}
+endsnippet
+# Anonymous Function assigned to variable
+snippet vaf "Description" b
+local ${1:function_name} = function(${2}) {
+	${0}
+};
+endsnippet
+# Function assigned to variable
+snippet vf "Description" b
+local ${1:function_name} = function $1(${2}) {
+	${0}
+};
+endsnippet
+# Immediate function
+snippet (f "Description" b
+(function(${1}) {
+	${0}
+}(${2}));
+endsnippet
+
+
+# Flow control
+
+# if
+snippet if "Description"
+if (${1:true}) {
+	${0}
+}
+endsnippet
+# if ... else
+snippet ife "Description"
+if (${1:true}) {
+	${2}
+} else {
+	${0}
+}
+endsnippet
+snippet else "else" 
+else {
+	${0}
+}
+endsnippet
+# tertiary conditional
+snippet ter "Description"
+(${1:/* condition */}) ? ${2:/* if true */} : ${0:/* if false */}
+endsnippet
+# switch
+snippet switch "Description" b
+switch (${1:expression}) {
+	case '${3:case}':
+		${4}
+		break;
+	${0}
+	default:
+		${2}
+}
+endsnippet
+# case
+snippet case "Description" b
+case '${1:case}':
+	${2}
+	break;
+${0}
+endsnippet
+# try
+snippet try "Description" b
+try {
+	${1}
+} catch (${2:e}) {
+	${0:/* handle error */}
+}
+endsnippet
+
+# Loops
+
+# for loop
+snippet for "Description" b
+for (local ${1:i} = $2; $1 < $3; $4++) {
+	$0
+}
+endsnippet
+# Reversed for loop
+snippet forr "Description" b
+for (local ${2:i} = ${1:arr}.len() - 1; $2 >= 0; $2--) {
+	local ${3:v} = $1[$2];${0:}
+}
+endsnippet
+# While loop
+snippet wh "Description" b
+while (${1:/* condition */}) {
+	${0}
+}
+endsnippet
+# Do while loop
+snippet do "do while" b
+do {
+	$1
+} while ($0)
+endsnippet
+# For in loop
+snippet fore "Description" b
+foreach (${1:prop} in ${2:object}) {
+	${0:$2[$1]}
+}
+endsnippet
+snippet sl "server.log"
+server.log(${0});
+endsnippet
+snippet sls "server.log a string"
+server.log("${0}");
+endsnippet
+snippet slf "server.log format"
+server.log(format("$1"$0));
+endsnippet
+snippet cl "server.log"
+server.log(${0});
+endsnippet
+snippet ll "logger.log"
+logger.log(${0});
+endsnippet
+snippet le "logger.error"
+logger.error(${0});
+endsnippet
+snippet lls "logger.log a string"
+logger.log("${1} %s", ${0});
+endsnippet
+snippet class "Class" b
+class ${1:ClassName} {
+	constructor(${2:args}) {
+		$0
+	}
+}
+endsnippet
+snippet l "local"
+local $0
+endsnippet
+snippet todo "todo" b
+/* TODO: $0 */
+endsnippet
+snippet tests "ImpTests TestCase" b
+class $1TestCase extends ImpTestCase {
+
+	function setUp() {
+		${2:return;}
+	}
+
+	// Begin tests
+
+	$4
+
+	// End tests
+
+	function tearDown() {
+		${3:return};
+	}
+
+}
+endsnippet
+snippet test "impTest test" b
+function test${1:Something}() {
+	${0:this.assertTrue(this instanceof ImpTestCase);}
+}
+endsnippet
+snippet at "assert true"
+this.assertTrue($0);
+endsnippet
+snippet ae "assert equal" b
+this.assertEqual($0);
+endsnippet
+snippet ade "assert deep equal" b
+this.assertDeepEqual($0);
+endsnippet
