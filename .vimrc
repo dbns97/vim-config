@@ -10,16 +10,15 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'gummesson/stereokai.vim'
 Plugin 'xevz/vim-squirrel'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'sickill/vim-monokai'
 Plugin 'Rip-Rip/clang_complete'
 Plugin 'scrooloose/nerdtree'
-Plugin 'Shougo/neocomplete.vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
+Plugin 'cohama/lexima.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -62,6 +61,8 @@ set backspace=2
 
 " Key Mappings
 " ---------------------------
+
+map <leader>n :NERDTreeToggle<CR>
 
 " Normal Mode
 nnoremap <leader>v :e ~/.vimrc<CR>
