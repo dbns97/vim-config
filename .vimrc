@@ -39,16 +39,22 @@ syntax on
 colorscheme monokai
 set t_Co=256
 set term=screen-256color
+hi Search cterm=NONE ctermfg=black ctermbg=yellow
 set hidden
 
 let mapleader=" "
 let g:syntastic_c_config_file = '.clang_complete'
 let g:syntastic_cpp_config_file = '.clang_complete'
-let &t_SI = "\<Esc>]50;CursorShape=1\x7"
-let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
+if exists('$TMUX')
+	let &t_SI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=1\x7\<Esc>\\"
+	let &t_EI = "\<Esc>Ptmux;\<Esc>\<Esc>]50;CursorShape=0\x7\<Esc>\\"
+else
+	let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+	let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+endif
 
 set mouse=a
 set number
@@ -58,6 +64,7 @@ set incsearch
 set tabstop=4
 set shiftwidth=4
 set backspace=2
+set smartindent
 
 " Key Mappings
 " ---------------------------
@@ -73,16 +80,22 @@ nnoremap <leader>b :CtrlPBuffer<CR>
 nnoremap <leader>d :bd<CR>
 nnoremap <leader>sh :split<space>
 nnoremap <leader>sv :vsplit<space>
+nnoremap <leader>y "*y
+nnoremap <leader>p "*p
 " Command Mode
-cnoremap <ctrl>h <Left>
-cnoremap <ctrl>l <Right>
-cnoremap <ctrl>k <Up>
-cnoremap <ctrl>j <Down>
+inoremap <c-h> <Left>
+inoremap <c-l> <Right>
+inoremap <c-k> <Up>
+inoremap <c-j> <Down>
 cnoremap jf <esc>
 cnoremap fj <esc>
 " Insert Mode
 inoremap jf <esc>
 inoremap fj <esc>
+inoremap <c-h> <Left>
+inoremap <c-l> <Right>
+inoremap <c-k> <Up>
+inoremap <c-j> <Down>
 " Visual Mode
 vnoremap fj <esc>
 vnoremap jf <esc>
